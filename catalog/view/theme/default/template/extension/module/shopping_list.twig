@@ -1,0 +1,72 @@
+<div id="shopping-list" class="panel panel-default" ng-app="ShoppingList" ng-controller="ShoppingListController">
+    <div class="panel-heading">
+        <h3 class="panel-title text-center">
+            <i class="fa fa-list pull-left"></i>
+            <span>{{ heading_title }}</span>
+        </h3>
+    </div>
+    <div class="panel-body">
+        <div ng-class="{% verbatim %} {'has-error':error.item} {% endverbatim %}">
+            <input type="text" ng-model="item" class="form-control" placeholder="{{ text_placeholder }}" autofocus>
+        </div>
+        <div class="dropdown" ng-show="showList">
+            <ul class="shoplist-dropdown-menu">
+                <li class="text-capitalize" ng-repeat="product in productList"> 
+                    <span ng-click="addItem(product)" ng-cloak>{% verbatim %}{{ product.name}} {% endverbatim %}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="table-responsive" style="overflow-y: auto; max-height: 400px">
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th class="text-left"></th>
+                    <th class="text-left">{{ text_items }}</th>
+                    <th class="text-left">{{ text_quantity }}</th>
+                    <th class="text-left">{{ text_price }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="listItem in listItems">
+                    <td class="text-left" style="vertical-align: top">
+                        <button type="button" class="close" ng-click="removeItem(listItem)"> &times; </button>
+                    </td>
+                    <td class="text-left  ng-cloak">
+                        <a href="index.php?route=product/product&product_id={% verbatim %} {{ listItem.id}} {% endverbatim %}">
+                            {% verbatim %} {{ listItem.name}} {% endverbatim %}
+                        </a>
+                    </td>
+                    <td class="text-left ng-cloak" ng-class="{% verbatim %} {'has-error':listItem.error} {% endverbatim %}">
+                        <input type="text" class="form-control input-sm" ng-model="listItem.customer_quantity" />
+                    </td>
+                    <td class="text-left  ng-cloak">
+                        {% verbatim %} {{ listItem.price * listItem.customer_quantity | currency}} {% endverbatim %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="highlight" style="font-weight: bold">
+        <ul class="nav nav-pills nav-stacked">
+            <li class="ng-cloak">{{ text_items }} <span class="badge pull-right">{% verbatim %} {{ listItems.length}} {% endverbatim %}</span></li>
+            <li class="ng-cloak">{{ text_quantity }}<span class="badge pull-right">{% verbatim %} {{ totalQuantity | number : 0}} {% endverbatim %}</span></li>
+            <li class="ng-cloak">{{ text_price }} <span class="badge pull-right">{% verbatim %} {{ totalPrice | currency}} {% endverbatim %}</span></li>
+        </ul>
+    </div>
+    <div class="well well-sm" style="margin-bottom: 0px">
+        <div class="button-group">
+            <button class="btn btn-primary btn-xs" ng-click="addToCart()" data-toggle="tooltip" data-original-title="{{ button_add_to_cart }}">
+                <i class="fa fa-shopping-cart"></i>
+                <span class="hidden-xs hidden-md hidden-sm" ng-disabled="error.cart"> {{ button_add_to_cart }}</span>
+            </button>
+            <button class="btn btn-default btn-xs" ng-click="addToWishList()" data-toggle="tooltip" data-original-title="{{ button_add_to_wishlist }}">
+                <i class="fa fa-heart"></i> 
+            </button>
+            <button class="btn btn-danger btn-xs" ng-click="clearAll()" data-toggle="tooltip" data-original-title="{{ button_clear }}">
+                <i class="fa fa-trash"></i>
+                <span class="hidden-xs hidden-md hidden-sm">{{ button_clear }}</span> 
+            </button>
+        </div>
+    </div>
+</div>

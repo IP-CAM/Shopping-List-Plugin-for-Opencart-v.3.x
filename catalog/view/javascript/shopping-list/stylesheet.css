@@ -1,0 +1,97 @@
+/* 
+    Created on : 30-Sep-2017, 04:09:43
+    Author     : imaleo
+*/
+
+#shopping-list .table > tbody > tr > td, 
+.table > tbody > tr > th, 
+.table > tfoot > tr > td, 
+.table > tfoot > tr > th, 
+.table > thead > tr > td, 
+.table > thead > tr > th {
+    vertical-align: middle;
+}
+
+#shopping-list .shoplist-dropdown-menu {
+    position: absolute;
+    /*top: 224.7px;*/
+    top: 33px;
+    left: 0px;
+    z-index: 1000;
+    width: auto;
+    float: left;
+    min-width: 160px;
+    padding: 5px;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 13px;
+    text-align: left;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 3px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+    background-clip: padding-box;
+}
+
+#shopping-list .button-group {
+    margin-top: 0px;
+}
+
+#shopping-list tfoot > tr{
+    font-weight: bold;
+}
+
+#shopping-list .table-responsive{
+    overflow: auto;
+    max-height: 400px
+}
+
+.highlight {
+    padding: 9px 14px;
+    background-color: #f7f7f9;
+    border: 1px solid #e1e1e8;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+}
+
+    /*#shopping-list .dropdown-menu{
+       position: absolute;
+        top: 224.7px;
+        top: 33px;
+        left: 0px;
+        z-index: 1000;
+        width: auto;
+        float: left;
+        min-width: 160px;
+        padding: 5px;
+        margin: 2px 0 0;
+        list-style: none;
+        font-size: 13px;
+        text-align: left;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border: 1px solid rgba(0, 0, 0, .15);
+        border-radius: 3px;
+        -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+        background-clip: padding-box; 
+    }*/
+
+    .shoplist-dropdown-menu > li > span {
+        display: block;
+        padding: 5px 20px;
+        clear: both;
+        font-weight: normal;
+        line-height: 1.42857;
+        color: #333;
+        white-space: nowrap;
+        cursor: pointer;
+    }
+
+    .shoplist-dropdown-menu > li > span:hover{
+        background-color: #FFFFFF;
+    }
